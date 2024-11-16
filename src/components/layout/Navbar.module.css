@@ -1,0 +1,24 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color:rgb(121, 121, 121);
+    padding: 1em;
+}
+
+.list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+     margin: 0 auto; /* Centrelizei */
+}
+
+.item {
+    margin: 1em;
+    align-items: center;
+}
+
+.item a {
+    color: #fff;
+    text-decoration: none;
+}
+

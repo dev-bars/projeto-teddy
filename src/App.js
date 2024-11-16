@@ -3,15 +3,12 @@ import Home from "./components/pages/Home";
 import Clientes from "./components/pages/Clientes";
 import NovosClientes from "./components/pages/NovosClientes";
 
+import NavBar from "./components/layout/Navbar";
+
 function App() {
   return (
     <Router>
-      <div>
-        <Link to='./'>Home</Link>
-        <Link to='./Clientes'>Clientes</Link>
-        <Link to='./NovosClientes'>Novos Clientes</Link>
-      </div>
-       
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/clientes" element={<Clientes />} />
