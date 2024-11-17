@@ -1,0 +1,21 @@
+
+
+.clientes_container h1 {
+    margin-bottom: 0.5em;
+}
+
+
+.clientes_button input {
+    width: 200px;
+    margin-bottom: 0.5em;
+}
+
+.clientes_button_color input {
+    width: 210px;
+    margin-bottom: 0.2em;
+    background-color: orange;
+    border: orange;
+    border-radius: 2px;
+}
+
+
