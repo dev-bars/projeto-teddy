@@ -26,7 +26,6 @@ export default CriarClientes
 
  */
 
-
 import { useState } from "react";
 import styles from "./CriarClientes.module.css";
 
@@ -40,7 +39,7 @@ function CriarClientes() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-  const novoCliente = {
+    const novoCliente = {
       id: Math.floor(Math.random() * 1000),
       nome,
       salario,
@@ -51,6 +50,12 @@ function CriarClientes() {
     setNome("");
     setSalario("");
     setValorEmpresa("");
+  };
+
+  const handleDelete = (id) => {
+    // Remove o cliente da lista pelo ID
+    const updatedClientes = clientes.filter((cliente) => cliente.id !== id);
+    setClientes(updatedClientes);
   };
 
   return (
@@ -91,15 +96,21 @@ function CriarClientes() {
         </div>
       </form>
 
-      {}
       <div className={styles.clientes_list}>
-        <h2>Clientes Criados:</h2>
         <ul>
           {clientes.map((cliente) => (
-            <li key={cliente.id}>
-              <strong>Nome:</strong> {cliente.nome} | <strong>Salário:</strong>{" "}
-              {cliente.salario} | <strong>Valor da Empresa:</strong>{" "}
-              {cliente.valorEmpresa}
+            <li key={cliente.id} className={styles.cliente_item}>
+              <div><strong>Nome:</strong> {cliente.nome} </div>
+              <div><strong>Salário:</strong>{" "}
+              {cliente.salario}</div>
+              <div><strong>Valor da Empresa:</strong>{" "}
+              {cliente.valorEmpresa}</div>
+              <button
+                onClick={() => handleDelete(cliente.id)}
+                className={styles.delete_button}
+              >
+                Excluir
+              </button>
             </li>
           ))}
         </ul>

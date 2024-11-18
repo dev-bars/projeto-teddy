@@ -13,9 +13,6 @@ function Navbar() {
             <li className={styles.item}>
               <Link to="./Clientes">Clientes</Link>
             </li>
-            <li className={styles.item}>
-              <Link to="./NovosClientes">Novos Clientes</Link>
-            </li>
           </ul>
         </Container>
       </nav>
