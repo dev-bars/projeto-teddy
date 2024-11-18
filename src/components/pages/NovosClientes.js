@@ -1,7 +1,8 @@
 function NovosClientes() {
     return (
-    <h1>NovosClientes</h1>
+    <h1>BBB</h1>
     )
 }
 
 export default NovosClientes
+

@@ -1,16 +1,19 @@
-import styles from "./CriarClientes.module.css"
+/* import styles from "./CriarClientes.module.css"
 
 function CriarClientes () {
     return (
         <form>
             <div className={styles.clientes_button}>
-                <input type="text" placeholder="Nome" />
+                <lable>Nome:</lable><br />
+                <input type="text" placeholder="Digitar o nome" />
             </div>
+            <lable>Salário:</lable><br />
             <div className={styles.clientes_button}>
-                <input type="number" placeholder="Salário" />
+                <input type="number" placeholder="Digitar o salário" />
             </div>
+            <lable>Valor da empresa:</lable><br />
             <div className={styles.clientes_button}>
-                <input type="number" placeholder="Valor da empresa" />
+                <input type="number" placeholder="Digitar o valor da empresa" />
             </div>
             <div className={styles.clientes_button_color}>
                 <input type="submit" value="Criar cliente" />
@@ -21,5 +24,88 @@ function CriarClientes () {
 
 export default CriarClientes
 
+ */
 
 
+import { useState } from "react";
+import styles from "./CriarClientes.module.css";
+
+function CriarClientes() {
+  const [nome, setNome] = useState("");
+  const [salario, setSalario] = useState("");
+  const [valorEmpresa, setValorEmpresa] = useState("");
+
+  const [clientes, setClientes] = useState([]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+  const novoCliente = {
+      id: Math.floor(Math.random() * 1000),
+      nome,
+      salario,
+      valorEmpresa,
+    };
+
+    setClientes([...clientes, novoCliente]);
+    setNome("");
+    setSalario("");
+    setValorEmpresa("");
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <div className={styles.clientes_button}>
+          <label>Nome:</label>
+          <br />
+          <input
+            type="text"
+            placeholder="Digite o nome"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+          />
+        </div>
+        <div className={styles.clientes_button}>
+          <label>Salário:</label>
+          <br />
+          <input
+            type="number"
+            placeholder="Digite o salário"
+            value={salario}
+            onChange={(e) => setSalario(e.target.value)}
+          />
+        </div>
+        <div className={styles.clientes_button}>
+          <label>Valor da empresa:</label>
+          <br />
+          <input
+            type="number"
+            placeholder="Digite o valor da empresa"
+            value={valorEmpresa}
+            onChange={(e) => setValorEmpresa(e.target.value)}
+          />
+        </div>
+        <div className={styles.clientes_button_color}>
+          <input type="submit" value="Criar Cliente" />
+        </div>
+      </form>
+
+      {}
+      <div className={styles.clientes_list}>
+        <h2>Clientes Criados:</h2>
+        <ul>
+          {clientes.map((cliente) => (
+            <li key={cliente.id}>
+              <strong>Nome:</strong> {cliente.nome} | <strong>Salário:</strong>{" "}
+              {cliente.salario} | <strong>Valor da Empresa:</strong>{" "}
+              {cliente.valorEmpresa}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+export default CriarClientes;
